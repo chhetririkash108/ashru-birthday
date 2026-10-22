@@ -1,5 +1,27 @@
 
-function updateCountdown() {
+const form = document.getElementById("password-form");
+const passwordInput = document.getElementById("password");
+const errorMessage = document.getElementById("error");
+const gate = document.getElementById("gate");
+const birthday = document.getElementById("birthday");
+
+const correctPassword = "ashrik";
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  if (passwordInput.value.trim() === correctPassword) {
+    gate.hidden = true;
+    birthday.hidden = false;
+    errorMessage.textContent = "";
+    updateAge();
+  } else {
+    errorMessage.textContent =
+      "Not quite! Try your special password again 🌼";
+  }
+});
+
+function updateAge() {
   const birthDate = new Date("2005-12-30T00:00:00+05:30");
   const display = document.getElementById("countdown");
 
@@ -7,31 +29,27 @@ function updateCountdown() {
     const now = new Date();
 
     if (now < birthDate) {
-      display.textContent = "Your special day is coming! 🌼";
+      display.textContent = "Your beautiful journey begins soon 🌼";
       return;
     }
 
-    let cursor = new Date(birthDate);
-    let years = 0;
-    let months = 0;
+    let years = now.getFullYear() - birthDate.getFullYear();
+    let months = now.getMonth() - birthDate.getMonth();
 
-    while (true) {
-      const next = new Date(cursor);
-      next.setFullYear(next.getFullYear() + 1);
-      if (next > now) break;
-      cursor = next;
-      years++;
+    if (now.getDate() < birthDate.getDate()) {
+      months--;
     }
 
-    while (true) {
-      const next = new Date(cursor);
-      next.setMonth(next.getMonth() + 1);
-      if (next > now) break;
-      cursor = next;
-      months++;
+    if (months < 0) {
+      years--;
+      months += 12;
     }
 
-    let remaining = Math.floor((now - cursor) / 1000);
+    const lastBirthday = new Date(birthDate);
+    lastBirthday.setFullYear(birthDate.getFullYear() + years);
+    lastBirthday.setMonth(birthDate.getMonth() + months);
+
+    let remaining = Math.floor((now - lastBirthday) / 1000);
 
     const days = Math.floor(remaining / 86400);
     remaining %= 86400;
