@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap');
+
+:root {
+  --rose: #b96f7d;
+  --deep: #68434d;
+  --muted: #8b6870;
+  --cream: #fffaf6;
+  --pink: #f8e8e8;
+  --line: #edd3d5;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; color: var(--deep);
+  background:
+    radial-gradient(ellipse at top left, #fff9f3 0%, transparent 42%),
+    linear-gradient(135deg, #f7e4e6, #fdf5ee 55%, #e9f0e4);
+  font-family: "DM Sans", sans-serif;
+}
+.petals {
+  position: fixed; inset: 0 0 auto; text-align: center; padding: 18px 8px;
+  color: #bc7e88; opacity: .45; letter-spacing: .5rem; pointer-events: none;
+}
+.shell { width: min(760px, 100%); margin: auto; padding: 68px 18px 28px; }
+.panel {
+  position: relative; overflow: hidden; text-align: center; padding: clamp(26px, 6vw, 58px);
+  border: 1px solid rgba(185,111,125,.25); border-radius: 28px;
+  background: rgba(255,250,246,.88); box-shadow: 0 20px 70px rgba(104,67,77,.12);
+  backdrop-filter: blur(8px);
+}
+.hidden { display: none; }
+.eyebrow { font-size: .72rem; letter-spacing: .2em; font-weight: 600; color: var(--rose); }
+.flower { font-size: 3rem; margin: 12px 0; }
+h1, h2 { font-family: "Playfair Display", Georgia, serif; font-weight: 500; }
+h1 { font-size: clamp(2.4rem, 8vw, 4.4rem); line-height: 1.08; margin: 12px 0; }
+h1 span { color: var(--rose); }
+h2 { font-size: 1.8rem; }
+.intro { max-width: 490px; margin: 18px auto 26px; line-height: 1.75; color: var(--muted); }
+label { display: block; margin: 20px 0 8px; font-size: .9rem; }
+input {
+  display: block; width: 100%; max-width: 360px; margin: 0 auto 12px; padding: 14px 16px;
+  border: 1px solid var(--line); border-radius: 14px; background: white; color: var(--deep);
+  font: inherit; outline-color: var(--rose);
+}
+button {
+  border: 0; border-radius: 999px; padding: 14px 22px; background: var(--rose); color: white;
+  font: inherit; font-weight: 600; cursor: pointer; box-shadow: 0 8px 20px rgba(185,111,125,.2);
+  transition: transform .2s ease, filter .2s ease;
+}
+button:hover { transform: translateY(-2px); filter: brightness(1.04); }
+.small { font-size: .84rem; color: var(--muted); line-height: 1.6; }
+.countdown { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 30px 0 20px; }
+.countdown div { padding: 18px 6px; border-radius: 16px; background: #f5e1e2; }
+.countdown strong { display: block; font: 600 clamp(1.4rem, 5vw, 2.3rem) "Playfair Display", Georgia, serif; }
+.countdown span { display: block; margin-top: 6px; font-size: .75rem; color: var(--muted); }
+.note { margin: 12px 0 22px; color: var(--muted); }
+.letter { margin: 28px auto; padding: 24px; max-width: 540px; text-align: left; line-height: 1.85; background: #fff5f0; border: 1px solid #f0dadd; border-radius: 18px; }
+.signature { text-align: right; color: var(--rose); font-family: "Playfair Display", Georgia, serif; font-size: 1.2rem; }
+.memories { margin-top: 34px; }
+.photo-placeholder { padding: 54px 12px; margin-top: 16px; border: 1px dashed #d7aab2; border-radius: 18px; background: #fbefed; color: var(--muted); }
+code { background: #f5e8e5; padding: 2px 5px; border-radius: 5px; }
+footer { text-align: center; padding: 22px 8px 0; font-size: .8rem; color: #987a80; }
+@media (max-width: 460px) {
+  .shell { padding: 54px 12px 22px; }
+  .panel { border-radius: 22px; }
+  .countdown { gap: 6px; }
+  .countdown div { padding: 14px 3px; }
+}
