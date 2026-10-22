@@ -1,61 +1,57 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8e9e8">
-  <title>For Ashru ♡</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Ashru 🌼</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="petals" aria-hidden="true">✿　♡　✧　❀　♡　✿　✧　❀</div>
-  <main class="shell">
-    <section class="panel" id="gate">
-      <p class="eyebrow">A LITTLE WORLD MADE FOR YOU</p>
-      <div class="flower" aria-hidden="true">❀</div>
-      <h1>For <span data-her-name>Ashru</span> ♡</h1>
-      <p class="intro">Someone has prepared a little birthday magic just for you.</p>
-      <label for="password">A tiny secret to enter</label>
-      <input id="password" type="password" autocomplete="off" placeholder="Enter the secret word">
-      <button id="unlock">Open your little world ♡</button>
-      <p id="gate-message" class="small" role="status">A surprise from Rikash, made with love.</p>
+  <main style="max-width:760px;margin:auto;padding:40px 20px;text-align:center;">
+    <p style="letter-spacing:4px;color:#f2d69a;">A SPECIAL DAY FOR A SPECIAL YOU</p>
+
+    <section id="gate" class="password-box">
+      <p style="font-size:55px;margin:10px;">🌼</p>
+      <h1>Happy Birthday, Ashru</h1>
+      <p>Under the northern lights, a little garden is waiting just for you.</p>
+      <p>Enter your special password to open your surprise.</p>
+      <form id="password-form">
+        <input id="password" type="password" placeholder="Enter your special password..." required>
+        <p><button type="submit">Open your surprise ✨</button></p>
+        <p id="error" role="status"></p>
+      </form>
     </section>
 
-    <section class="panel hidden" id="countdown-view">
-      <p class="eyebrow">YOUR SPECIAL DAY IS GETTING CLOSER</p>
-      <div class="flower" aria-hidden="true">🌷</div>
-      <h1>For <span data-her-name>Ashru</span> ♡</h1>
-      <p class="intro">Every little second brings us closer to your day.</p>
-      <div class="countdown" aria-label="Countdown to birthday">
-        <div><strong id="days">--</strong><span>Days</span></div>
-        <div><strong id="hours">--</strong><span>Hours</span></div>
-        <div><strong id="minutes">--</strong><span>Minutes</span></div>
-        <div><strong id="seconds">--</strong><span>Seconds</span></div>
+    <section id="birthday" hidden>
+      <p style="font-size:48px;">🌼 ✨ 🌼</p>
+      <h1>Happy Birthday, Ashru!</h1>
+      <p>Another year of your beautiful dreams, and I'm so lucky to be a part of your story.</p>
+      <p>May your days be filled with love, peace, and little moments that make you smile.</p>
+
+      <div class="countdown">
+        <h2>Your special day</h2>
+        <p id="countdown">Counting down to 30 December 2026...</p>
+        <p style="color:#f2d69a;">30 DECEMBER 2026</p>
       </div>
-      <p id="countdown-note" class="note">A little patience, a lot of love.</p>
-      <button id="enter-surprise">Take a little peek ♡</button>
-      <p class="small">Made especially for you by <span data-my-name>Rikash</span>.</p>
-    </section>
 
-    <section class="panel hidden" id="surprise">
-      <p class="eyebrow">A BIRTHDAY GARDEN, JUST FOR YOU</p>
-      <div class="flower" aria-hidden="true">🌸</div>
-      <h1>Happy Birthday, <span data-her-name>Ashru</span>! ♡</h1>
-      <p class="intro" id="birthday-message"></p>
       <div class="letter">
-        <p>Dear <span data-her-name>Ashru</span>,</p>
-        <p id="letter-message"></p>
-        <p class="signature">With love,<br><span data-my-name>Rikash</span> ♡</p>
+        <h2>A little letter for you 💌</h2>
+        <p>Dear Ashru,</p>
+        <p>If I could give you one thing, it would be the ability to see yourself through my eyes — so you could understand how special you are to me.</p>
+        <p>I hope this new year of your life brings you happiness, courage, beautiful memories, and all the things your heart quietly wishes for.</p>
+        <p>Happy Birthday, my favourite person. 🌼</p>
       </div>
-      <div class="memories">
-        <h2>Little memories, big feelings</h2>
-        <p class="small">Add your own photos to the <code>assets</code> folder and update the captions in <code>script.js</code> when you're ready.</p>
-        <div class="photo-placeholder">Your favourite memory goes here ♡</div>
-      </div>
-      <button id="replay">Start again ♡</button>
+
+      <p style="font-size:24px;color:#f2d69a;">Some people make life more beautiful ♡</p>
+      <p>Made with love, just for you.</p>
     </section>
-    <footer>Made with care, one little detail at a time.</footer>
+
+    <footer style="padding:30px 0;color:#e8dfc7;">
+      <p>🌼 DAFFODILS • NORTHERN LIGHTS • GOLDEN DREAMS 🌌</p>
+    </footer>
   </main>
+
   <script src="script.js"></script>
 </body>
 </html>
