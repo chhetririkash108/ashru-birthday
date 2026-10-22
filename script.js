@@ -1,47 +1,57 @@
 
-const form = document.getElementById("password-form");
-const passwordInput = document.getElementById("password");
-const errorMessage = document.getElementById("error");
-const gate = document.getElementById("gate");
-const birthday = document.getElementById("birthday");
-
-const correctPassword = "Ashrik";
-
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  if (passwordInput.value.trim() === correctPassword) {
-    gate.hidden = true;
-    birthday.hidden = false;
-    updateCountdown();
-  } else {
-    errorMessage.textContent = "Incorrect password. Try again 🌼";
-  }
-});
-
 function updateCountdown() {
-  const birthdayDate = new Date("2026-12-30T00:00:00+05:30");
-  const countdown = document.getElementById("countdown");
+  const birthDate = new Date("2005-12-30T00:00:00+05:30");
+  const display = document.getElementById("countdown");
 
   function render() {
-    const difference = birthdayDate.getTime() - Date.now();
+    const now = new Date();
 
-    if (difference <= 0) {
-      countdown.textContent = "Happy Birthday, Ashru! 🌼✨";
-      clearInterval(window.countdownTimer);
+    if (now < birthDate) {
+      display.textContent = "Your special day is coming! 🌼";
       return;
     }
 
-    const days = Math.floor(difference / 86400000);
-    const hours = Math.floor((difference / 3600000) % 24);
-    const minutes = Math.floor((difference / 60000) % 60);
-    const seconds = Math.floor((difference / 1000) % 60);
+    let cursor = new Date(birthDate);
+    let years = 0;
+    let months = 0;
 
-    countdown.textContent =
-      `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds to go 💙`;
+    while (true) {
+      const next = new Date(cursor);
+      next.setFullYear(next.getFullYear() + 1);
+      if (next > now) break;
+      cursor = next;
+      years++;
+    }
+
+    while (true) {
+      const next = new Date(cursor);
+      next.setMonth(next.getMonth() + 1);
+      if (next > now) break;
+      cursor = next;
+      months++;
+    }
+
+    let remaining = Math.floor((now - cursor) / 1000);
+
+    const days = Math.floor(remaining / 86400);
+    remaining %= 86400;
+
+    const hours = Math.floor(remaining / 3600);
+    remaining %= 3600;
+
+    const minutes = Math.floor(remaining / 60);
+    const seconds = remaining % 60;
+
+    display.textContent =
+      `${years} years, ${months} months, ${days} days, ` +
+      `${hours} hours, ${minutes} minutes, ${seconds} seconds 💙`;
   }
 
   render();
-  clearInterval(window.countdownTimer);
+
+  if (window.countdownTimer) {
+    clearInterval(window.countdownTimer);
+  }
+
   window.countdownTimer = setInterval(render, 1000);
 }
