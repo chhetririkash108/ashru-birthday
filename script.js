@@ -16,8 +16,7 @@ form.addEventListener("submit", function (event) {
     errorMessage.textContent = "";
     updateAge();
   } else {
-    errorMessage.textContent =
-      "Not quite! Try your special password again 🌼";
+    errorMessage.textContent = "Incorrect password. Try again 🌼";
   }
 });
 
@@ -27,36 +26,25 @@ function updateAge() {
 
   function render() {
     const now = new Date();
-
-    if (now < birthDate) {
-      display.textContent = "Your beautiful journey begins soon 🌼";
-      return;
-    }
-
     let years = now.getFullYear() - birthDate.getFullYear();
     let months = now.getMonth() - birthDate.getMonth();
 
-    if (now.getDate() < birthDate.getDate()) {
-      months--;
-    }
+    if (now.getDate() < birthDate.getDate()) months--;
 
     if (months < 0) {
       years--;
       months += 12;
     }
 
-    const lastBirthday = new Date(birthDate);
-    lastBirthday.setFullYear(birthDate.getFullYear() + years);
-    lastBirthday.setMonth(birthDate.getMonth() + months);
+    const anniversary = new Date(birthDate);
+    anniversary.setFullYear(birthDate.getFullYear() + years);
+    anniversary.setMonth(birthDate.getMonth() + months);
 
-    let remaining = Math.floor((now - lastBirthday) / 1000);
-
+    let remaining = Math.floor((now - anniversary) / 1000);
     const days = Math.floor(remaining / 86400);
     remaining %= 86400;
-
     const hours = Math.floor(remaining / 3600);
     remaining %= 3600;
-
     const minutes = Math.floor(remaining / 60);
     const seconds = remaining % 60;
 
@@ -66,10 +54,6 @@ function updateAge() {
   }
 
   render();
-
-  if (window.countdownTimer) {
-    clearInterval(window.countdownTimer);
-  }
-
+  if (window.countdownTimer) clearInterval(window.countdownTimer);
   window.countdownTimer = setInterval(render, 1000);
 }
