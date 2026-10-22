@@ -5,19 +5,17 @@ const errorMessage = document.getElementById("error");
 const gate = document.getElementById("gate");
 const birthday = document.getElementById("birthday");
 
-// Change this to your chosen password.
 const correctPassword = "change-this";
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  if (passwordInput.value === correctPassword) {
+  if (passwordInput.value.trim() === correctPassword) {
     gate.hidden = true;
     birthday.hidden = false;
-    errorMessage.textContent = "";
     updateCountdown();
   } else {
-    errorMessage.textContent = "Not quite! Try your special password again 🌼";
+    errorMessage.textContent = "Incorrect password. Try again 🌼";
   }
 });
 
@@ -26,17 +24,17 @@ function updateCountdown() {
   const countdown = document.getElementById("countdown");
 
   function render() {
-    const now = new Date();
-    const difference = birthdayDate.getTime() - now.getTime();
+    const difference = birthdayDate.getTime() - Date.now();
 
     if (difference <= 0) {
       countdown.textContent = "Happy Birthday, Ashru! 🌼✨";
+      clearInterval(window.countdownTimer);
       return;
     }
 
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((difference / (1000 * 60)) % 60);
+    const days = Math.floor(difference / 86400000);
+    const hours = Math.floor((difference / 3600000) % 24);
+    const minutes = Math.floor((difference / 60000) % 60);
     const seconds = Math.floor((difference / 1000) % 60);
 
     countdown.textContent =
@@ -44,6 +42,6 @@ function updateCountdown() {
   }
 
   render();
-  if (window.countdownTimer) clearInterval(window.countdownTimer);
+  clearInterval(window.countdownTimer);
   window.countdownTimer = setInterval(render, 1000);
 }
