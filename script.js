@@ -5,7 +5,7 @@ const errorMessage = document.getElementById("error");
 const gate = document.getElementById("gate");
 const birthday = document.getElementById("birthday");
 
-const correctPassword = "change-this";
+const correctPassword = "Ashrik";
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
