@@ -9,47 +9,98 @@
 </head>
 <body>
   <main style="max-width:760px;margin:auto;padding:40px 20px;text-align:center;">
-    <p style="letter-spacing:4px;color:#f2d69a;">A SPECIAL DAY FOR A SPECIAL YOU</p>
 
+    <p style="letter-spacing:4px;color:#f2d69a;">
+      A SPECIAL DAY FOR A SPECIAL YOU
+    </p>
+
+    <!-- PASSWORD SCREEN -->
     <section id="gate" class="password-box">
       <p style="font-size:55px;margin:10px;">🌼</p>
       <h1>Happy Birthday, Ashru</h1>
       <p>Under the northern lights, a little garden is waiting just for you.</p>
       <p>Enter your special password to open your surprise.</p>
+
       <form id="password-form">
-        <input id="password" type="password" placeholder="Enter your special password..." required>
-        <p><button type="submit">Open your surprise ✨</button></p>
+        <input
+          id="password"
+          type="password"
+          placeholder="Enter your special password..."
+          required
+        >
+        <p>
+          <button type="submit">Open your surprise ✨</button>
+        </p>
         <p id="error" role="status"></p>
       </form>
     </section>
 
+    <!-- BIRTHDAY SURPRISE -->
     <section id="birthday" hidden>
       <p style="font-size:48px;">🌼 ✨ 🌼</p>
-      <h1>Happy Birthday, Ashru!</h1>
-      <p>Another year of your beautiful dreams, and I'm so lucky to be a part of your story.</p>
-      <p>May your days be filled with love, peace, and little moments that make you smile.</p>
 
+      <h1>Happy Birthday, Ashru!</h1>
+
+      <p>
+        Another year of your beautiful dreams, and I'm so lucky
+        to be a part of your story.
+      </p>
+
+      <p>
+        May your days be filled with love, peace, and little moments
+        that make you smile.
+      </p>
+
+      <!-- LIVE AGE COUNTER -->
       <div class="countdown">
-        <h2>Your special day</h2>
-        <p id="countdown">Counting down to 30 December 2026...</p>
-        <p style="color:#f2d69a;">30 DECEMBER 2026</p>
+        <h2>Every Second of Your Life 💙</h2>
+        <p>Since the day you were born 🌼</p>
+
+        <p
+          id="countdown"
+          aria-live="off"
+          style="font-size:20px;line-height:1.8;overflow-wrap:anywhere;"
+        >
+          Calculating your beautiful journey...
+        </p>
+
+        <p style="color:#f2d69a;">
+          BORN ON 30 DECEMBER 2005
+        </p>
       </div>
 
+      <!-- PERSONAL LETTER -->
       <div class="letter">
-        <h2>A little letter for you 💌</h2>
+        <h2>A Little Letter for You 💌</h2>
+
         <p>Dear Ashru,</p>
-        <p>If I could give you one thing, it would be the ability to see yourself through my eyes — so you could understand how special you are to me.</p>
-        <p>I hope this new year of your life brings you happiness, courage, beautiful memories, and all the things your heart quietly wishes for.</p>
+
+        <p>
+          If I could give you one thing, it would be the ability
+          to see yourself through my eyes — so you could understand
+          how special you are to me.
+        </p>
+
+        <p>
+          I hope this new year of your life brings you happiness,
+          courage, beautiful memories, and all the things your
+          heart quietly wishes for.
+        </p>
+
         <p>Happy Birthday, my favourite person. 🌼</p>
       </div>
 
-      <p style="font-size:24px;color:#f2d69a;">Some people make life more beautiful ♡</p>
+      <p style="font-size:24px;color:#f2d69a;">
+        Some people make life more beautiful ♡
+      </p>
+
       <p>Made with love, just for you.</p>
     </section>
 
     <footer style="padding:30px 0;color:#e8dfc7;">
       <p>🌼 DAFFODILS • NORTHERN LIGHTS • GOLDEN DREAMS 🌌</p>
     </footer>
+
   </main>
 
   <script src="script.js"></script>
